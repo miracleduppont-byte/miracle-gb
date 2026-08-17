@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Miracle GB</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+        }
+
+        .inscription {
+            max-width: 420px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #111;
+            color: white;
+            cursor: pointer;
+        }
+
+        #zoneCode {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="inscription">
+
+    <h1>Miracle GB</h1>
+    <h2>📝 Créer un compte</h2>
+
+    <form onsubmit="envoyerCode(event)">
+
+        <input
+            type="text"
+            id="nom"
+            placeholder="Nom"
+            required
+        >
+
+        <input
+            type="text"
+            id="prenom"
+            placeholder="Prénom"
+            required
+        >
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Adresse e-mail"
+            required
+        >
+
+        <input
+            type="password"
+            id="motdepasse"
+            placeholder="Mot de passe"
+            required
+        >
+
+        <button type="submit">
+            📧 Envoyer le code
+        </button>
+
+    </form>
+
+    <div id="zoneCode">
+
+        <h3>🔢 Vérification</h3>
+
+        <p>Entre le code reçu par e-mail.</p>
+
+        <input
+            type="text"
+            id="code"
+            placeholder="Code de vérification"
+            maxlength="6"
+        >
+
+        <button onclick="verifierCode()">
+            ✅ Vérifier le code
+        </button>
+
+    </div>
+
+    <p id="message"></p>
+
+    <a href="connexion.html">
+        🔐 J'ai déjà un compte
+    </a>
+
+    <a href="../index.html">
+        🏠 Retour à l'accueil
+    </a>
+
+</div>
+
+<script>
+
+let codeVerification = "";
+
+function envoyerCode(event) {
+
+    event.preventDefault();
+
+    const email =
+        document.getElementById("email").value;
+
+    // Démonstration uniquement :
+    // un vrai service d'e-mail sera connecté plus tard.
+    codeVerification =
+        Math.floor(100000 + Math.random() * 900000).toString();
+
+    console.log("Code de démonstration :", codeVerification);
+
+    document.getElementById("zoneCode").style.display = "block";
+
+    document.getElementById("message").textContent =
+        "Un code a été demandé pour " + email +
+        ". Pour le moment, regarde la console du navigateur pour le test.";
+}
+
+function verifierCode() {
+
+    const code =
+        document.getElementById("code").value.trim();
+
+    const message =
+        document.getElementById("message");
+
+    if (code === codeVerification) {
+
+        message.textContent =
+            "✅ Adresse e-mail vérifiée !";
+
+    } else {
+
+        message.textContent =
+            "❌ Code incorrect. Réessaie.";
+
+    }
+}
+
+</script>
+
+</body>
+</html>

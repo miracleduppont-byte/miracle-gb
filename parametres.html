@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Paramètres - Miracle GB</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .settings {
+            max-width: 600px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .setting {
+            padding: 18px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .setting label {
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .setting p {
+            color: #666;
+            margin: 7px 0;
+        }
+
+        select {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 8px;
+            background: #111;
+            color: white;
+            cursor: pointer;
+        }
+
+        .danger {
+            background: #b00020;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>⚙️ Miracle GB</h1>
+</header>
+
+<div class="settings">
+
+    <h2>Paramètres</h2>
+
+    <div class="setting">
+        <label>👤 Compte</label>
+        <p>Gérer les informations de votre compte.</p>
+        <button onclick="compte()">
+            Gérer mon compte
+        </button>
+    </div>
+
+    <div class="setting">
+        <label>🔔 Notifications</label>
+        <p>Activer ou désactiver les notifications.</p>
+
+        <select onchange="notifications(this.value)">
+            <option value="on">Activées</option>
+            <option value="off">Désactivées</option>
+        </select>
+    </div>
+
+    <div class="setting">
+        <label>🌙 Apparence</label>
+        <p>Choisir l'apparence du site.</p>
+
+        <select onchange="apparence(this.value)">
+            <option value="normal">Mode normal</option>
+            <option value="sombre">Mode sombre</option>
+        </select>
+    </div>
+
+    <div class="setting">
+        <label>🔐 Sécurité</label>
+        <p>Gérer la sécurité de votre compte.</p>
+
+        <button onclick="securite()">
+            Paramètres de sécurité
+        </button>
+    </div>
+
+    <button class="danger" onclick="deconnexion()">
+        🚪 Se déconnecter
+    </button>
+
+    <a href="../index.html">
+        🏠 Retour à l'accueil
+    </a>
+
+</div>
+
+<script>
+
+function compte() {
+    alert("Gestion du compte Miracle GB.");
+}
+
+function notifications(valeur) {
+
+    if (valeur === "on") {
+        alert("Notifications activées.");
+    } else {
+        alert("Notifications désactivées.");
+    }
+}
+
+function apparence(valeur) {
+
+    if (valeur === "sombre") {
+        document.body.style.background = "#222";
+        document.body.style.color = "white";
+    } else {
+        document.body.style.background = "#f2f2f2";
+        document.body.style.color = "#222";
+    }
+}
+
+function securite() {
+    alert("Les paramètres de sécurité seront disponibles bientôt.");
+}
+
+function deconnexion() {
+    alert("Vous êtes déconnecté de Miracle GB.");
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notifications - Miracle GB</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .notifications {
+            max-width: 600px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .notification {
+            padding: 18px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .notification:hover {
+            background: #f5f5f5;
+        }
+
+        .non-lue {
+            font-weight: bold;
+        }
+
+        .date {
+            display: block;
+            color: #777;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 8px;
+            background: #111;
+            color: white;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🔔 Miracle GB</h1>
+</header>
+
+<div class="notifications">
+
+    <h2>Notifications</h2>
+
+    <div class="notification non-lue">
+        ❤️ Quelqu'un a aimé votre publication.
+        <span class="date">Il y a quelques minutes</span>
+    </div>
+
+    <div class="notification non-lue">
+        💬 Quelqu'un a commenté votre publication.
+        <span class="date">Il y a 10 minutes</span>
+    </div>
+
+    <div class="notification">
+        👤 Vous avez un nouvel abonné.
+        <span class="date">Aujourd'hui</span>
+    </div>
+
+    <button onclick="marquerLues()">
+        ✓ Tout marquer comme lu
+    </button>
+
+    <a href="../index.html">
+        🏠 Retour à l'accueil
+    </a>
+
+</div>
+
+<script>
+    function marquerLues() {
+
+        const notifications =
+            document.querySelectorAll(".non-lue");
+
+        notifications.forEach(function(notification) {
+            notification.classList.remove("non-lue");
+        });
+
+        alert("Toutes les notifications sont lues.");
+    }
+</script>
+
+</body>
+</html>

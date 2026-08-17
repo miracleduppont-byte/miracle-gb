@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miracle GB</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Miracle GB</h1>
+        <nav>
+            <a href="#">Accueil</a>
+            <a href="#">À propos</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Bienvenue sur Miracle GB</h2>
+            <p>Découvrez mon univers et mes projets.</p>
+            <button onclick="direBonjour()">Commencer</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Miracle GB</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Miracle GB</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Miracle GB</h1>
+
+        <nav>
+            <a href="#">🏠 Accueil</a>
+            <a href="#">👤 Profil</a>
+            <a href="#">🔔 Notifications</a>
+            <a href="#">⚙️ Paramètres</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="publication-box">
+            <h2>Bienvenue sur Miracle GB 👋</h2>
+
+            <p>Partage quelque chose avec la communauté.</p>
+
+            <button onclick="creerPublication()">
+                📝 Créer une publication
+            </button>
+        </section>
+
+        <section class="publication">
+
+            <h3>👤 Miracle GB</h3>
+
+            <p>
+                Bienvenue sur ma première publication !
+            </p>
+
+            <div class="actions">
+                <button onclick="aimer()">❤️ J'aime</button>
+                <button>💬 Commenter</button>
+            </div>
+
+            <p id="likes">0 J'aime</p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Miracle GB</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Miracle GB</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+        }
+
+        .connexion {
+            max-width: 400px;
+            margin: 80px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        input {
+            width: 90%;
+            padding: 14px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 97%;
+            padding: 14px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #111;
+            color: white;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="connexion">
+
+        <h1>Miracle GB</h1>
+
+        <h2>🔐 Connexion</h2>
+
+        <form onsubmit="connexion(event)">
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Adresse e-mail"
+                required
+            >
+
+            <input
+                type="password"
+                id="motdepasse"
+                placeholder="Mot de passe"
+                required
+            >
+
+            <button type="submit">
+                Se connecter
+            </button>
+
+        </form>
+
+        <a href="inscription.html">
+            Créer un compte
+        </a>
+
+        <a href="../index.html">
+            🏠 Retour à l'accueil
+        </a>
+
+    </div>
+
+    <script>
+        function connexion(event) {
+            event.preventDefault();
+
+            alert("Connexion de Miracle GB !");
+        }
+    </script>
+
+</body>
+</html><div class="actions">
+
+    <button onclick="aimer()">
+        ❤️ J'aime
+    </button>
+
+    <button onclick="afficherCommentaire()">
+        💬 Commenter
+    </button>
+
+</div>
+
+<p id="likes">0 J'aime</p>
+
+<div id="zone-commentaire" style="display: none; margin-top: 15px;">
+
+    <input
+        type="text"
+        id="commentaire"
+        placeholder="Écris un commentaire..."
+    >
+
+    <button onclick="commenter()">
+        Envoyer
+    </button>
+
+    <div id="commentaires"></div>
+
+</div><a href="pages/aide.html">🆘 Aide</a>
+<a href="pages/recherche.html">🔎 Rechercher des amis</a>

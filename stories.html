@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stories - Miracle GB</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stories {
+            max-width: 700px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .stories-list {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 15px 0;
+        }
+
+        .story {
+            min-width: 90px;
+            height: 140px;
+            border-radius: 12px;
+            background: #ddd;
+            display: flex;
+            align-items: end;
+            justify-content: center;
+            padding: 10px;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+
+        .story.add {
+            background: #111;
+            color: white;
+            align-items: center;
+            text-align: center;
+        }
+
+        input {
+            margin: 15px 0;
+        }
+
+        #preview {
+            max-width: 100%;
+            max-height: 400px;
+            display: none;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #111;
+            color: white;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>📸 Miracle GB Stories</h1>
+</header>
+
+<div class="stories">
+
+    <h2>Stories</h2>
+
+    <div class="stories-list">
+
+        <div class="story add" onclick="ouvrirFichier()">
+            ➕<br>
+            Ajouter une story
+        </div>
+
+        <div class="story">
+            👤<br>
+            Miracle
+        </div>
+
+        <div class="story">
+            👤<br>
+            Ami
+        </div>
+
+    </div>
+
+    <h3>Ajouter une photo ou une vidéo</h3>
+
+    <input
+        type="file"
+        id="storyFile"
+        accept="image/*,video/*"
+        onchange="apercuStory()"
+    >
+
+    <img id="preview">
+
+    <video
+        id="previewVideo"
+        controls
+        style="display:none; max-width:100%; margin-top:15px; border-radius:12px;">
+    </video>
+
+    <button onclick="publierStory()">
+        📤 Publier la story
+    </button>
+
+</div>
+
+<a href="../index.html">
+    🏠 Retour à l'accueil
+</a>
+
+<script>
+
+function ouvrirFichier() {
+    document.getElementById("storyFile").click();
+}
+
+function apercuStory() {
+
+    const fichier =
+        document.getElementById("storyFile").files[0];
+
+    const image =
+        document.getElementById("preview");
+
+    const video =
+        document.getElementById("previewVideo");
+
+    image.style.display = "none";
+    video.style.display = "none";
+
+    if (!fichier) {
+        return;
+    }
+
+    const url = URL.createObjectURL(fichier);
+
+    if (fichier.type.startsWith("image/")) {
+        image.src = url;
+        image.style.display = "block";
+    }
+
+    if (fichier.type.startsWith("video/")) {
+        video.src = url;
+        video.style.display = "block";
+    }
+}
+
+function publierStory() {
+
+    const fichier =
+        document.getElementById("storyFile").files[0];
+
+    if (!fichier) {
+        alert("Choisis une photo ou une vidéo.");
+        return;
+    }
+
+    alert("🎉 Ta story a été créée sur Miracle GB !");
+}
+
+</script>
+
+</body>
+</html>

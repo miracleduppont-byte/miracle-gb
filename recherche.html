@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Recherche d'amis - Miracle GB</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .recherche {
+            max-width: 650px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .barre {
+            display: flex;
+            gap: 10px;
+        }
+
+        input {
+            flex: 1;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 14px 18px;
+            border: none;
+            border-radius: 8px;
+            background: #111;
+            color: white;
+            cursor: pointer;
+        }
+
+        .ami {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .nom {
+            font-weight: bold;
+        }
+
+        .resultat {
+            margin-top: 25px;
+        }
+
+        .message-vide {
+            color: #777;
+            text-align: center;
+            padding: 20px;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🔎 Miracle GB</h1>
+</header>
+
+<div class="recherche">
+
+    <h2>Rechercher des amis</h2>
+
+    <div class="barre">
+        <input
+            type="text"
+            id="recherche"
+            placeholder="Rechercher un nom..."
+            onkeydown="toucheEntree(event)"
+        >
+
+        <button onclick="chercherAmis()">
+            Rechercher
+        </button>
+    </div>
+
+    <div id="resultats" class="resultat"></div>
+
+    <a href="../index.html">
+        🏠 Retour à l'accueil
+    </a>
+
+</div>
+
+<script>
+
+const utilisateurs = [
+    "Miracle GB",
+    "Jean",
+    "Marie",
+    "Kevin",
+    "Aline",
+    "Paul",
+    "David"
+];
+
+function chercherAmis() {
+
+    const texte =
+        document.getElementById("recherche").value
+        .toLowerCase()
+        .trim();
+
+    const resultats =
+        document.getElementById("resultats");
+
+    resultats.innerHTML = "";
+
+    if (texte === "") {
+        resultats.innerHTML =
+            '<div class="message-vide">Écris un nom à rechercher.</div>';
+        return;
+    }
+
+    const trouvés = utilisateurs.filter(function(nom) {
+        return nom.toLowerCase().includes(texte);
+    });
+
+    if (trouvés.length === 0) {
+        resultats.innerHTML =
+            '<div class="message-vide">Aucun utilisateur trouvé.</div>';
+        return;
+    }
+
+    trouvés.forEach(function(nom) {
+
+        const bloc = document.createElement("div");
+        bloc.className = "ami";
+
+        bloc.innerHTML = `
+            <div>
+                👤 <span class="nom">${nom}</span>
+            </div>
+
+            <button onclick="ajouterAmi('${nom}')">
+                ➕ Ajouter
+            </button>
+        `;
+
+        resultats.appendChild(bloc);
+    });
+}
+
+function ajouterAmi(nom) {
+
+    alert("Demande d'ami envoyée à " + nom + " !");
+}
+
+function toucheEntree(event) {
+
+    if (event.key === "Enter") {
+        chercherAmis();
+    }
+}
+
+</script>
+
+</body>
+</html>
